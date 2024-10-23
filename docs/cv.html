@@ -33,6 +33,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
@@ -113,6 +114,7 @@ ul.task-list li input[type="checkbox"] {
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
+   
   <ul>
   <li><a href="#education" id="toc-education" class="nav-link active" data-scroll-target="#education">Education</a></li>
   <li><a href="#experience" id="toc-experience" class="nav-link" data-scroll-target="#experience">Experience</a></li>
@@ -122,43 +124,49 @@ ul.task-list li input[type="checkbox"] {
 </nav>
     </div>
 <!-- main -->
-<div class="quarto-about-solana column-body">
-  <div class="about-entity">
-    <div class="entity-contents">
-      <header id="title-block-header" class="quarto-title-block default">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Academic CV</h1>
 </div>
+
+
+
 <div class="quarto-title-meta">
+
+    
+  
+    
   </div>
-</header> 
-      <div class="about-contents"><main class="content" id="quarto-document-content">
+  
+
+
+</header>
+
 
 <section id="education" class="level2">
-<h2 data-anchor-id="education">Education</h2>
+<h2 class="anchored" data-anchor-id="education">Education</h2>
 <p>King’s College London | PhD - Statistics | Sept 2022 - Present</p>
 <p>University of St.&nbsp;Andrews | MMath - Mathematics and Statistics (1st) | Sept 2016 - June 2020</p>
 </section>
 <section id="experience" class="level2">
-<h2 data-anchor-id="experience">Experience</h2>
+<h2 class="anchored" data-anchor-id="experience">Experience</h2>
 <p>Bank of America Merrill Lynch | Software Engineer | August 2020 - September 2022</p>
 <p>British Army Reserve | Troop Leader | June 2017 - June 2020</p>
 </section>
 <section id="talks-and-posters" class="level2">
-<h2 data-anchor-id="talks-and-posters">Talks and Posters</h2>
+<h2 class="anchored" data-anchor-id="talks-and-posters">Talks and Posters</h2>
 <p>Carson joined the PhD in Statistics Research programme in 2022. Prior to joining King’s, he graduated from the University of St.&nbsp;Andrews in 2020 with an MMath in Mathematics &amp; Statistics and then worked as a software engineer at Bank of America from 2020-2022.</p>
 </section>
 <section id="funding-and-awards" class="level2">
-<h2 data-anchor-id="funding-and-awards">Funding and Awards</h2>
+<h2 class="anchored" data-anchor-id="funding-and-awards">Funding and Awards</h2>
 <p>Carson joined the PhD in Statistics Research programme in 2022. Prior to joining King’s, he graduated from the University of St.&nbsp;Andrews in 2020 with an MMath in Mathematics &amp; Statistics and then worked as a software engineer at Bank of America from 2020-2022.</p>
 
 
 </section>
-</main></div>
-    </div>
-  </div>
-</div>
- <!-- /main -->
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -179,6 +187,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
