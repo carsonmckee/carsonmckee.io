@@ -1,23 +1,58 @@
 [
   {
+    "objectID": "seminars.html",
+    "href": "seminars.html",
+    "title": "Stats Seminar Series",
+    "section": "",
+    "text": "The KCL Junior Statistics Seminar series runs bi weekly on Mondays. Below are a list of the previous and upcoming talks. If you would like to contribute a talk, please contact one of the organisers at carson.mckee@kcl.ac.uk or ziyou.wang@klc.ac.uk."
+  },
+  {
+    "objectID": "seminars.html#fall-2024",
+    "href": "seminars.html#fall-2024",
+    "title": "Stats Seminar Series",
+    "section": "Fall 2024",
+    "text": "Fall 2024\nThursday 4th Nomember 2024\nTime: TBC, Room: TBC\nTitle: Mutually Dependent Bernoulli Processes for Multivariate Change-Point Detection\nPresenter: Carson McKee\nAbstract: Financial and economic time series exhibit sharp structural breaks, or change-points, driven by events such as recessions or financial market crashes. In the multivariate setting, these changes may occur asynchronously across series. It is often the case that the occurrence of a change-point in one series affects the probability of a subsequent change occurring in another. This is observed, for example, in financial contagion, when turmoil spreads from one country to another. A multivariate change-point prior is developed, which explicitly models this dependence using discrete time and mutually dependent point processes. Under this prior, the probability of a change-point occurring in a series at a given time is dependent on recent changes in other series. Thus, the model allows for both cross-sectional and temporal dependence in the change-point probabilities. Then, conditional on the change-point locations, the data in each segment is assumed to be independent of the data in other segments. Obtaining posterior estimates under this model is non-trivial. A blocked Gibbs sampler and a particle Gibbs sampler are developed for use in high dimensions. The model is demonstrated on simulated and real datasets and is shown to uncover latent dependencies linking change-points in different series."
+  },
+  {
+    "objectID": "cv.html",
+    "href": "cv.html",
+    "title": "Academic CV",
+    "section": "",
+    "text": "King’s College London | PhD - Statistics | Sept 2022 - Present\nUniversity of St. Andrews | MMath - Mathematics and Statistics (1st) | Sept 2016 - June 2020"
+  },
+  {
+    "objectID": "cv.html#education",
+    "href": "cv.html#education",
+    "title": "Academic CV",
+    "section": "",
+    "text": "King’s College London | PhD - Statistics | Sept 2022 - Present\nUniversity of St. Andrews | MMath - Mathematics and Statistics (1st) | Sept 2016 - June 2020"
+  },
+  {
+    "objectID": "cv.html#experience",
+    "href": "cv.html#experience",
+    "title": "Academic CV",
+    "section": "Experience",
+    "text": "Experience\nBank of America Merrill Lynch | Software Engineer | August 2020 - September 2022\nBritish Army Reserve | Troop Leader | June 2017 - June 2020"
+  },
+  {
+    "objectID": "cv.html#talks-and-posters",
+    "href": "cv.html#talks-and-posters",
+    "title": "Academic CV",
+    "section": "Talks and Posters",
+    "text": "Talks and Posters\nCarson joined the PhD in Statistics Research programme in 2022. Prior to joining King’s, he graduated from the University of St. Andrews in 2020 with an MMath in Mathematics & Statistics and then worked as a software engineer at Bank of America from 2020-2022."
+  },
+  {
+    "objectID": "cv.html#funding-and-awards",
+    "href": "cv.html#funding-and-awards",
+    "title": "Academic CV",
+    "section": "Funding and Awards",
+    "text": "Funding and Awards\nCarson joined the PhD in Statistics Research programme in 2022. Prior to joining King’s, he graduated from the University of St. Andrews in 2020 with an MMath in Mathematics & Statistics and then worked as a software engineer at Bank of America from 2020-2022."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Carson McKee",
     "section": "",
     "text": "Carson joined the PhD in Statistics Research programme in 2022. Prior to joining King’s, he graduated from the University of St. Andrews in 2020 with an MMath in Mathematics & Statistics and then worked as a software engineer at Bank of America from 2020-2022."
-  },
-  {
-    "objectID": "index.html#education",
-    "href": "index.html#education",
-    "title": "Carson McKee",
-    "section": "Education",
-    "text": "Education\nKing’s College London | PhD - Statistics | Sept 2022 - Present\nUniversity of St. Andrews | MMath - Mathematics and Statistics (1st) | Sept 2016 - June 2020"
-  },
-  {
-    "objectID": "index.html#experience",
-    "href": "index.html#experience",
-    "title": "Carson McKee",
-    "section": "Experience",
-    "text": "Experience\nBank of America Merrill Lynch | Software Engineer | August 2020 - September 2022\nBritish Army Reserve | Troop Leader | June 2017 - June 2020"
   }
 ]
