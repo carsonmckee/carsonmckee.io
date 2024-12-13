@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Carson McKee",
     "section": "",
-    "text": "Carson joined the PhD in Statistics Research programme in 2022. Prior to joining King’s, he graduated from the University of St. Andrews in 2020 with an MMath in Mathematics & Statistics and then worked as a software engineer at Bank of America from 2020-2022."
+    "text": "I am a third year statistics PhD candidate in the Department of Mathematics at King’s College London. My research focuses on Bayesian methods and computational statistics, including:\n\nBayesian Nonparametrics\nTime series analysis\nChange-point detection\nMonte Carlo methods\nParticle Filtering"
   },
   {
     "objectID": "seminars.html",
@@ -46,13 +46,13 @@
     "href": "cv.html#talks-and-posters",
     "title": "Academic CV",
     "section": "Talks and Posters",
-    "text": "Talks and Posters\nCarson joined the PhD in Statistics Research programme in 2022. Prior to joining King’s, he graduated from the University of St. Andrews in 2020 with an MMath in Mathematics & Statistics and then worked as a software engineer at Bank of America from 2020-2022."
+    "text": "Talks and Posters\n15/12/2024 (Invited Talk) CFE CMStatistics: Mutually Dependent Bernoulli Processes for Multivariate Change-Point Detection.\n29/10/2024 (Contributed Talk) CUSP PhD Conference: Bayesian Methods for Change-Point Detection.\n05/06/2024 (Poster) ISBA World Meeting Venice: Bayesian Nonparametric Change-Point Detection for Multivariate Time Series.\n04/06/2024 (Contributed Talk) ISBA World Meeting Venice: Bayesian Nonparametric Change-Point Detection for Multivariate Time Series.\n05/12/2023 (Poster) ISBA BNP Melbourne: Bayesian Nonparametric Change-Point Modelling for Macroeconomic Time Series."
   },
   {
     "objectID": "cv.html#funding-and-awards",
     "href": "cv.html#funding-and-awards",
     "title": "Academic CV",
     "section": "Funding and Awards",
-    "text": "Funding and Awards\nCarson joined the PhD in Statistics Research programme in 2022. Prior to joining King’s, he graduated from the University of St. Andrews in 2020 with an MMath in Mathematics & Statistics and then worked as a software engineer at Bank of America from 2020-2022."
+    "text": "Funding and Awards\n\nMy PhD is funded by a four year studentship from the Heilbronn Institute for Mathematical Research.\n$500 travel grant for poster presentation at ISBA BNP 2023 in Melbourne.\nBest poster award at ISBA Venice 2024 (“Bayesian Nonparametric Change-Point Detection for Multivariate Time Series”)."
   }
 ]
