@@ -179,7 +179,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="bayesglm" class="level3">
 <h3 class="anchored" data-anchor-id="bayesglm">BayesGLM</h3>
-<p>BayesGLM offers flexible GLM spceification within a Bayesian Framework, supporting a wide range of Prior distributions while allowing for hierarchical Prior specification. Models are fitted by implementing the Metropolis Hastings Algorithm in order to induce stationary Markov Chains of which posterior samples can be obtained. The underlying mathematics is written in C++ for speed and interfaces with Python using Cython. The model fitting is done via a central ‘glm’ object, similar in functionality to that found in the R language. Source is available at <a href="https://github.com/carsonmckee/bayesglm">carsonmckee/bayesglm</a>.</p>
+<p>BayesGLM offers flexible GLM specification within a Bayesian Framework, supporting a wide range of Prior distributions while allowing for hierarchical Prior specification. Models are fitted by implementing the Metropolis Hastings Algorithm in order to induce stationary Markov Chains of which posterior samples can be obtained. The underlying mathematics is written in C++ for speed and interfaces with Python using Cython. The model fitting is done via a central ‘glm’ object, similar in functionality to that found in the R language. Source is available at <a href="https://github.com/carsonmckee/bayesglm">bayesglm</a>.</p>
 <p>Example snippets for fitting a Bayesian logistic regression using BayesGLM are given below.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> glm(formula<span class="op">=</span><span class="st">"y ~ x1 + x2 + x3"</span>,</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>            priors<span class="op">=</span>priors,</span>
@@ -210,24 +210,51 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="nglm" class="level3">
 <h3 class="anchored" data-anchor-id="nglm">NGlm</h3>
-<p>An R library for fitting Bayesian linear models using Normal-Gamma shrinkage priors (Griffin and Brown, 2010). Such priors are appropriate when we have many predictors but relatively few data points. The numerical code is written in C++ for efficiency and interfaces with R using the Rcpp API. This library is available at <a href="https://github.com/carsonmckee/NGlm">carsonmckee/NGlm</a>.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># generate dummy data</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">75</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(p<span class="sc">*</span>n, <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">nrow=</span>n, <span class="at">ncol=</span>p)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, p)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>beta[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>] <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> X<span class="sc">%*%</span>beta <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># fit the model</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">NG</span>(y, X, <span class="at">verbose=</span><span class="cn">FALSE</span>, <span class="at">n_samples=</span><span class="dv">10000</span>, <span class="at">n_thin=</span><span class="dv">1</span>)</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect the beta 1 chain</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mod<span class="sc">$</span>samples[<span class="dv">2000</span><span class="sc">:</span><span class="dv">10000</span>, <span class="st">'beta_1'</span>], <span class="at">type=</span><span class="st">'l'</span>)</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co"># geneate posterior summary estimates</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod, <span class="at">burnin=</span><span class="dv">2000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>An R library for fitting Bayesian linear models using Normal-Gamma shrinkage priors (Griffin and Brown, 2010). Such priors are appropriate when we have many predictors but relatively few data points. The numerical code is written in C++ for efficiency and interfaces with R using the Rcpp API. This library is available at <a href="https://github.com/carsonmckee/NGlm">NGlm</a>. Example usage of the R package is given below.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(NGlm)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># generate dummy data</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">75</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(p<span class="sc">*</span>n, <span class="dv">0</span>, <span class="dv">1</span>), <span class="at">nrow=</span>n, <span class="at">ncol=</span>p)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, p)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>beta[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>] <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> X<span class="sc">%*%</span>beta <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co"># fit the model</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">NG</span>(y, X, <span class="at">verbose=</span><span class="cn">FALSE</span>, <span class="at">n_samples=</span><span class="dv">10000</span>, <span class="at">n_thin=</span><span class="dv">1</span>)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect the beta 1 chain</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mod<span class="sc">$</span>samples[<span class="dv">2000</span><span class="sc">:</span><span class="dv">10000</span>, <span class="st">'beta_1'</span>], <span class="at">type=</span><span class="st">'l'</span>)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co"># geneate posterior summary estimates</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod, <span class="at">burnin=</span><span class="dv">2000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Produces the output:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">NG</span>(<span class="at">y =</span> y, <span class="at">X =</span> X, <span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">=</span>  <span class="dv">75</span> </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>p <span class="ot">=</span>  <span class="dv">100</span> </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>MCMC Samples<span class="sc">:</span> <span class="dv">10000</span>  Burn<span class="sc">-</span><span class="cf">in</span><span class="sc">:</span> <span class="dv">2000</span> </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">Coefficients</span> (non<span class="sc">-</span>zero only)<span class="sc">:</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>            mean     <span class="fl">2.5</span><span class="sc">%    97.5%</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>alpha   <span class="fl">1.839836</span> <span class="fl">1.600198</span> <span class="fl">2.086501</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>beta_1  <span class="fl">4.916641</span> <span class="fl">4.685911</span> <span class="fl">5.152642</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>beta_10 <span class="fl">5.090981</span> <span class="fl">4.865482</span> <span class="fl">5.313934</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>beta_20 <span class="fl">4.970170</span> <span class="fl">4.666417</span> <span class="fl">5.281846</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>beta_30 <span class="fl">4.861412</span> <span class="fl">4.632176</span> <span class="fl">5.087879</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>beta_40 <span class="fl">5.110184</span> <span class="fl">4.879636</span> <span class="fl">5.340332</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>Errors Standard Deviation<span class="sc">:</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>     mean      <span class="fl">2.5</span><span class="sc">%     97.5%</span> </span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="fl">0.8611414</span> <span class="fl">0.6948363</span> <span class="fl">1.0581903</span> </span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>Shrinkage Parameters<span class="sc">:</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>             mean        <span class="fl">2.5</span><span class="sc">%      97.5%</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>lambda <span class="fl">0.02819610</span> <span class="fl">0.015775557</span> <span class="fl">0.04301182</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>gamma  <span class="fl">0.04357078</span> <span class="fl">0.007551935</span> <span class="fl">0.11947228</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
