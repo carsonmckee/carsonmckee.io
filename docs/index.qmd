@@ -1,0 +1,25 @@
+---
+title: "Carson McKee"
+about:
+  template: solana
+  image: profile.jpg
+  links:
+    - icon: github
+      text: Github
+      href: https://github.com/carsonmckee
+    - icon: linkedin
+      text: LinkedIn
+      href: https://uk.linkedin.com/in/carson-mckee
+---
+
+I am a third year statistics PhD candidate in the Department of Mathematics at King's College London. My research focuses on Bayesian methods and computational statistics, including:
+
+-   Bayesian Nonparametrics
+
+-   Time series analysis
+
+-   Change-point detection
+
+-   Monte Carlo methods
+
+-   Particle Filtering

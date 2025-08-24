@@ -1,0 +1,81 @@
+---
+title: "Software"
+---
+
+### BayesGLM
+
+BayesGLM offers flexible GLM spceification within a Bayesian Framework, supporting a wide range of Prior distributions while allowing for hierarchical Prior specification. Models are fitted by implementing the Metropolis Hastings Algorithm in order to induce stationary Markov Chains of which posterior samples can be obtained. The underlying mathematics is written in C++ for speed and interfaces with Python using Cython. The model fitting is done via a central 'glm' object, similar in functionality to that found in the R language. Source is available at [carsonmckee/bayesglm](https://github.com/carsonmckee/bayesglm).
+
+Example snippets for fitting a Bayesian logistic regression using BayesGLM are given below.
+
+``` python
+model = glm(formula="y ~ x1 + x2 + x3",
+            priors=priors,
+            family=Binomial(link='logit'),
+            data=data)
+```
+
+We fit the model via MCMC sampling (adaptive Metropolis Hastings).
+
+``` python
+model.fit(chain_length=30000, burn_in=5000, initial_pos=initial_pos)
+```
+
+``` python
+[=====================================================================>] 30000/30000 (2 seconds)
+```
+
+We can then view a summary of the posterior distribution.
+
+``` python
+model.summary()
+```
+
+``` python
+                                Bayesian GLM Summary
+------------------------------------------------------------------------------------
+DIC: 72.4154        | Chain iters : 30000  | Formula :   y ~ .          
+N  : 76             | Burn-in     : 5000   | Family  :   binomial(link=logit)
+------------------------------------------------------------------------------------
+Node       Prior        Mean        s.d.      [2.5%        97.5%]       Acc. Rate
+------------------------------------------------------------------------------------
+Intercept  uninformed   1.747       0.360     1.077        2.496        0.284       
+x1         normal       0.782       0.486     -0.127       1.764        0.301       
+x2         normal       0.606       0.422     -0.215       1.451        0.260       
+x3         normal       -0.406      0.390     -1.189       0.322        0.259       
+------------------------------------------------------------------------------------
+```
+
+Various plots can also be produced. For example, we may view the sampled MCMC chains using:
+
+``` python
+model.plot_chain_trace(burn_in=False)
+plt.show()
+plt.close()
+```
+
+![](bernoulli_chains.png)
+
+### NGlm
+
+An R library for fitting Bayesian linear models using Normal-Gamma shrinkage priors (Griffin and Brown, 2010). Such priors are appropriate when we have many predictors but relatively few data points. The numerical code is written in C++ for efficiency and interfaces with R using the Rcpp API. This library is available at [carsonmckee/NGlm](https://github.com/carsonmckee/NGlm).
+
+```R
+# generate dummy data
+set.seed(1234)
+p <- 100
+n <- 75
+X <- matrix(rnorm(p*n, 0, 1), nrow=n, ncol=p)
+beta <- rep(0, p)
+beta[1:5] <- 5
+y <- X%*%beta + rnorm(n, 0, 1)
+
+# fit the model
+mod <- NG(y, X, verbose=FALSE, n_samples=10000, n_thin=1)
+
+# inspect the beta 1 chain
+plot(mod$samples[2000:10000, 'beta_1'], type='l')
+
+# geneate posterior summary estimates
+summary(mod, burnin=2000)
+```
